@@ -8,7 +8,7 @@ CREATE TABLE clothesshop.Clothes (
     `Material` VARCHAR(50),
     `Price` DECIMAL(4,2),
     `Gender` BIT,
-    `Catergory` VARCHAR(100),
+    `Category` VARCHAR(100),
 	PRIMARY KEY (ClothesID),
 	FOREIGN KEY (WorkerID) REFERENCES Worker (WorkerID),
 	FOREIGN KEY (ClientID) REFERENCES Clients (ClientID)
