@@ -1,5 +1,23 @@
 //  List all available Clothes
-SELECT * FROM clothes
+SELECT 
+    clothes.ClothesID, clothes.Catergory, 
+    dresses.Length AS 'Dress length', 
+    dresses.Type AS 'Dress type',
+    hats.Size AS 'Hat size',
+    hats.Type AS 'Hat type',
+    pants.Fit AS 'Pants fit',
+    pants.Inseam AS 'Pants inseam',
+    pants.Length AS 'Pants length',
+    pants.Type AS 'Pants type',
+    pants.WaistSize AS 'Pants waiste size',
+    shoes.Laces AS 'Shoe laces',
+    shoes.Size AS 'Shoe size',
+    shoes.Type AS 'Shoe type',
+    tops.Collar AS 'Top collar',
+    tops.Size AS 'Top size',
+    tops.Sleeves AS 'Top Sleeve',
+    tops.Type AS 'Top type'
+    FROM clothes, dresses, hats, pants, shoes, tops
 
 //  List all Suppliers
 SELECT * FROM suppliers
