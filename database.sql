@@ -9,7 +9,7 @@ CREATE TABLE clothesshop.Clothes (
     `Brand` VARCHAR(50),
     `Material` VARCHAR(50),
     `Price` DECIMAL(4,2),
-    `Gender` BIT,
+    `Gender` CHAR,
     `Category` VARCHAR(100),
 	PRIMARY KEY (ClothesID),
 	FOREIGN KEY (WorkerID) REFERENCES Worker (WorkerID),
@@ -73,10 +73,18 @@ create table clothesshop.Receipt (
    Date_Time datetime,
    MethodOfPayment VARCHAR(20),
    WorkerID int,
-   ClothesID int,  
    PRIMARY KEY (ReceiptID, ClientID),
    FOREIGN KEY (ClientID) REFERENCES Clients (ClientID)
 );
+
+DROP TABLE IF EXISTS clothesshop.ClothesInReceipt;
+create table clothesshop.ClothesInReceipt (
+    ReceiptID int NOT NULL,
+    ClothesID int,
+    Primary Key (ReceiptID),
+    FOREIGN KEY (ReceiptID) REFERENCES Receipt (ReceiptID)
+);
+
 DROP TABLE IF EXISTS clothesshop.Suppliers;
 create table clothesshop.Suppliers (
    SupplierID int NOT NULL AUTO_INCREMENT,
