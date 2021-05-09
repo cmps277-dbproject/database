@@ -160,4 +160,10 @@ FROM ( SELECT SupplierID, clothes.ClothesID, Brand, Category, ClientID, Color, G
 	INNER JOIN supply ON clothes.ClothesID=supply.ClothesID ) AS clothesSupply 
 INNER JOIN suppliers ON suppliers.SupplierID=clothesSupply.SupplierID
 
-CREATE VIEW `Suppliers Clothes` AS SELECT Name, Phone, Country, State, ZIP, clothesSupply.ClothesID, Brand, Category, Color, Gender, Material, Price FROM ( SELECT SupplierID, clothes.ClothesID, Brand, Category, ClientID, Color, Gender, Material, Price, WorkerID FROM clothes INNER JOIN supply ON clothes.ClothesID=supply.ClothesID ) AS clothesSupply INNER JOIN suppliers ON suppliers.SupplierID=clothesSupply.SupplierID
+CREATE VIEW `AllClientsReceipts` AS 
+SELECT clientid, receipt.ReceiptID, ClothesID,date_time, methodofpayment, category, color, brand, material, price, gender, workerid  FROM
+	receipt
+	JOIN
+	(SELECT clothesreceipt.ReceiptID, clothesreceipt.ClothesID, allclothes.Category, allclothes.Color, allclothes.Brand, allclothes.Material, allclothes.Price, allclothes.Gender FROM allclothes JOIN clothesreceipt ON allclothes.ClothesID=clothesreceipt.ClothesID) AS `clothesInReceipt`
+      ON receipt.ReceiptID=clothesinreceipt.receiptid
+
