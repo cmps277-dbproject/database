@@ -77,8 +77,8 @@ create table clothesshop.Receipt (
    FOREIGN KEY (ClientID) REFERENCES Clients (ClientID)
 );
 
-DROP TABLE IF EXISTS clothesshop.ClothesInReceipt;
-create table clothesshop.ClothesInReceipt (
+DROP TABLE IF EXISTS clothesshop.ClothesReceipt;
+create table clothesshop.ClothesReceipt (
     ReceiptID int NOT NULL,
     ClothesID int,
     Primary Key (ReceiptID),
