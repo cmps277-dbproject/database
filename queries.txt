@@ -56,7 +56,7 @@ SELECT
         LEFT JOIN tops ON clothes.ClothesID = tops.ClothesID;
 
 // As an owner check which managers manage which employees
-SELECT *
+SELECT ManagerManages.workerid, `Manager Name`, Employee.WorkerID, employee.`Employee Name`
 FROM (SELECT Worker.Name AS `Employee Name` , employees.WorkerID
     FROM Worker, Employees
     WHERE Worker.WorkerID=Employees.WorkerID) AS `Employee`
@@ -66,4 +66,4 @@ LEFT JOIN (SELECT *
             FROM Worker, Manager
             WHERE Worker.WorkerID=Manager.WorkerID) AS `Manager`
     ON Manages.ManagerWorkerID=Manager.WorkerID) AS `ManagerManages`
-ON Employee.WorkerID=ManagerManages.EmployeeWorkerID ;
+ON Employee.WorkerID=ManagerManages.EmployeeWorkerID
