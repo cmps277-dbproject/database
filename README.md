@@ -42,6 +42,10 @@ The Clothes Shop Database
 
 - SuppliersClothes
 
-## Relational Model
+## Phase 1 - Enhanced Entity Relational Diagram
+
+![EERD](/images/EERD.png)
+
+## Phase 2 - Relational Model Diagram
 
 ![Relational-Model-Diagram](/images/relational-model.png)
