@@ -152,7 +152,7 @@ CREATE TABLE clothesshop.Manages
     FOREIGN KEY(EmployeeWorkerID) REFERENCES Worker(WorkerID),
     FOREIGN KEY(ManagerWorkerID) REFERENCES Manager(WorkerID)
 );
-CREATE VIEW `Suppliers Clothes` AS 
+CREATE VIEW `SuppliersClothes` AS 
 SELECT Name, Phone, Country, State, ZIP, clothesSupply.ClothesID, Brand, Category, Color, Gender, Material, Price, suppliers.SupplierID
 FROM ( SELECT SupplierID, clothes.ClothesID, Brand, Category, ClientID, Color, Gender, Material, Price, WorkerID 
 	FROM clothes 
