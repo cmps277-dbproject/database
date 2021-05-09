@@ -7,7 +7,7 @@ SELECT * FROM clients;
 //  List all Clothes of a certain brand
 SELECT * FROM clothes WHERE Brand="X";
 
-//  Search for Clothes that have size X material Y brand Z
+//  Search for Clothes that have material Y brand Z
 SELECT * FROM clothes WHERE Brand="X" AND Material="Y";
 
 //  As a manager check on your employees
@@ -30,30 +30,7 @@ SELECT * FROM `AllClientsReceipts` WHERE  clientid="X";
 ####################
 
 //  List all available Clothes
-SELECT
-	clothes.ClothesID, clothes.Category, clothes.Color, clothes.Brand, clothes.Material, clothes.Price, clothes.Gender,
-    dresses.Length AS 'Dress length', 
-    dresses.Type AS 'Dress type',
-    hats.Size AS 'Hat size',
-    hats.Type AS 'Hat type',
-    pants.Fit AS 'Pants fit',
-    pants.Inseam AS 'Pants inseam',
-    pants.Length AS 'Pants length',
-    pants.Type AS 'Pants type',
-    pants.WaistSize AS 'Pants waist size',
-    shoes.Laces AS 'Shoe laces',
-    shoes.Size AS 'Shoe size',
-    shoes.Type AS 'Shoe type',
-    tops.Collar AS 'Top collar',
-    tops.Size AS 'Top size',
-    tops.Sleeves AS 'Top Sleeve',
-    tops.Type AS 'Top type'
-    FROM clothes 
-    	LEFT JOIN dresses ON clothes.ClothesID = dresses.ClothesID
-        LEFT JOIN hats ON clothes.ClothesID = hats.ClothesID
-        LEFT JOIN pants ON clothes.ClothesID = pants.ClothesID
-        LEFT JOIN shoes ON clothes.ClothesID = shoes.ClothesID
-        LEFT JOIN tops ON clothes.ClothesID = tops.ClothesID;
+SELECT * FROM allclothes;
 
 // As an owner check which managers manage which employees
 SELECT ManagerManages.workerid, `Manager Name`, Employee.WorkerID, employee.`Employee Name`
