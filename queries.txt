@@ -1,6 +1,6 @@
 //  List all available Clothes
-SELECT 
-    clothes.ClothesID, clothes.Category, 
+SELECT
+	clothes.ClothesID, clothes.Category, 
     dresses.Length AS 'Dress length', 
     dresses.Type AS 'Dress type',
     hats.Size AS 'Hat size',
@@ -17,7 +17,12 @@ SELECT
     tops.Size AS 'Top size',
     tops.Sleeves AS 'Top Sleeve',
     tops.Type AS 'Top type'
-    FROM clothes, dresses, hats, pants, shoes, tops
+    FROM clothes 
+    	LEFT JOIN dresses ON clothes.ClothesID = dresses.ClothesID
+        LEFT JOIN hats ON clothes.ClothesID = hats.ClothesID
+        LEFT JOIN pants ON clothes.ClothesID = pants.ClothesID
+        LEFT JOIN shoes ON clothes.ClothesID = shoes.ClothesID
+        LEFT JOIN tops ON clothes.ClothesID = tops.ClothesID
 
 //  List all Suppliers
 SELECT * FROM suppliers
