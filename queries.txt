@@ -9,7 +9,7 @@ SELECT
     pants.Inseam AS 'Pants inseam',
     pants.Length AS 'Pants length',
     pants.Type AS 'Pants type',
-    pants.WaistSize AS 'Pants waiste size',
+    pants.WaistSize AS 'Pants waist size',
     shoes.Laces AS 'Shoe laces',
     shoes.Size AS 'Shoe size',
     shoes.Type AS 'Shoe type',
