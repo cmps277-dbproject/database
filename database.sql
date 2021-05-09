@@ -82,7 +82,8 @@ create table clothesshop.ClothesReceipt (
     ReceiptID int NOT NULL,
     ClothesID int,
     Primary Key (ReceiptID, ClothesID),
-    FOREIGN KEY (ReceiptID) REFERENCES Receipt (ReceiptID)
+    FOREIGN KEY (ReceiptID) REFERENCES Receipt (ReceiptID),
+    FOREIGN KEY (ClothesID) REFERENCES Clothes (ClothesID),	
 );
 
 DROP TABLE IF EXISTS clothesshop.Suppliers;
