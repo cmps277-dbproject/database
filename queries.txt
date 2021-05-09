@@ -49,6 +49,11 @@ SELECT * FROM `Suppliers Clothes`
 // Selects all the clothes bought for each receipt
 SELECT * FROM `AllClientsReceipts`
 
+// Selects all the clothes bought for receipt Y
+SELECT * FROM `AllClientsReceipts` WHERE  receiptid="Y"
+
+// Selects all the clothes bought for client X
+SELECT * FROM `AllClientsReceipts` WHERE  clientid="X"
 
 // As an owner check which managers manage which employees
 SELECT *
