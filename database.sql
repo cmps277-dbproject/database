@@ -153,7 +153,7 @@ CREATE TABLE clothesshop.Manages
     FOREIGN KEY(ManagerWorkerID) REFERENCES Manager(WorkerID)
 );
 CREATE VIEW `SuppliersClothes` AS 
-SELECT Name, Phone, Country, State, ZIP, clothesSupply.ClothesID, Brand, Category, Color, Gender, Material, Price, suppliers.SupplierID
+SELECT Name, Phone, Country, State, ZIP, clothesSupply.ClothesID, Brand, Category, Color, Gender, Material, Price
 FROM ( SELECT SupplierID, clothes.ClothesID, Brand, Category, ClientID, Color, Gender, Material, Price, WorkerID 
 	FROM clothes 
 	INNER JOIN supply ON clothes.ClothesID=supply.ClothesID ) AS clothesSupply 
