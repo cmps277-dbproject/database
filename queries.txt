@@ -1,6 +1,6 @@
 //  List all available Clothes
 SELECT
-	clothes.ClothesID, clothes.Category, 
+	clothes.ClothesID, clothes.Category, clothes.Color, clothes.Brand, clothes.Material, clothes.Price, clothes.Gender,
     dresses.Length AS 'Dress length', 
     dresses.Type AS 'Dress type',
     hats.Size AS 'Hat size',
