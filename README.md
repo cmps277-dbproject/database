@@ -44,4 +44,4 @@ The Clothes Shop Database
 
 ## Relational Model
 
-![Relational-Model-Diagram](/images/relational model.png)
+![Relational-Model-Diagram](/images/relational-model.png)
