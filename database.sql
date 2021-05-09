@@ -1,3 +1,4 @@
+DROP SCHEMA IF EXISTS clothesshop;
 CREATE SCHEMA clothesshop;
 
 DROP TABLE IF EXISTS clothesshop.Clothes;
@@ -66,6 +67,7 @@ create table clothesshop.Clients (
    Email VARCHAR(20),
    PRIMARY KEY (ClientID)
 );
+
 DROP TABLE IF EXISTS clothesshop.Receipt;
 create table clothesshop.Receipt (
    ClientID int NOT NULL,
@@ -83,7 +85,7 @@ create table clothesshop.ClothesReceipt (
     ClothesID int,
     Primary Key (ReceiptID, ClothesID),
     FOREIGN KEY (ReceiptID) REFERENCES Receipt (ReceiptID),
-    FOREIGN KEY (ClothesID) REFERENCES Clothes (ClothesID),	
+    FOREIGN KEY (ClothesID) REFERENCES Clothes (ClothesID)
 );
 
 DROP TABLE IF EXISTS clothesshop.Suppliers;
@@ -96,6 +98,7 @@ create table clothesshop.Suppliers (
    ZIP int,
    PRIMARY KEY (SupplierID)
 );
+
 DROP TABLE IF EXISTS clothesshop.Supply;
 create table clothesshop.Supply (
    SupplierID int NOT NULL,
@@ -153,17 +156,46 @@ CREATE TABLE clothesshop.Manages
     FOREIGN KEY(EmployeeWorkerID) REFERENCES Worker(WorkerID),
     FOREIGN KEY(ManagerWorkerID) REFERENCES Manager(WorkerID)
 );
-CREATE VIEW `SuppliersClothes` AS 
+
+DROP VIEW IF EXISTS clothesshop.AllClothes;
+CREATE VIEW clothesshop.AllClothes AS
+SELECT clothes.ClothesID, clothes.Category, clothes.Color, clothes.Brand, clothes.Material, clothes.Price, clothes.Gender,
+    dresses.Length AS 'Dress length', 
+    dresses.Type AS 'Dress type',
+    hats.Size AS 'Hat size',
+    hats.Type AS 'Hat type',
+    pants.Fit AS 'Pants fit',
+    pants.Inseam AS 'Pants inseam',
+    pants.Length AS 'Pants length',
+    pants.Type AS 'Pants type',
+    pants.WaistSize AS 'Pants waist size',
+    shoes.Laces AS 'Shoe laces',
+    shoes.Size AS 'Shoe size',
+    shoes.Type AS 'Shoe type',
+    tops.Collar AS 'Top collar',
+    tops.Size AS 'Top size',
+    tops.Sleeves AS 'Top Sleeve',
+    tops.Type AS 'Top type'
+    FROM clothesshop.clothes 
+    	LEFT JOIN clothesshop.dresses ON clothes.ClothesID = dresses.ClothesID
+        LEFT JOIN clothesshop.hats ON clothes.ClothesID = hats.ClothesID
+        LEFT JOIN clothesshop.pants ON clothes.ClothesID = pants.ClothesID
+        LEFT JOIN clothesshop.shoes ON clothes.ClothesID = shoes.ClothesID
+        LEFT JOIN clothesshop.tops ON clothes.ClothesID = tops.ClothesID;
+
+DROP VIEW IF EXISTS clothesshop.SuppliersClothes;
+CREATE VIEW clothesshop.SuppliersClothes AS 
 SELECT Name, Phone, Country, State, ZIP, clothesSupply.ClothesID, Brand, Category, Color, Gender, Material, Price
 FROM ( SELECT SupplierID, clothes.ClothesID, Brand, Category, ClientID, Color, Gender, Material, Price, WorkerID 
-	FROM clothes 
-	INNER JOIN supply ON clothes.ClothesID=supply.ClothesID ) AS clothesSupply 
-INNER JOIN suppliers ON suppliers.SupplierID=clothesSupply.SupplierID
+	FROM clothesshop.clothes 
+	INNER JOIN clothesshop.supply ON clothes.ClothesID=supply.ClothesID ) AS clothesSupply 
+INNER JOIN clothesshop.suppliers ON suppliers.SupplierID=clothesSupply.SupplierID;
 
-CREATE VIEW `AllClientsReceipts` AS 
-SELECT clientid, receipt.ReceiptID, ClothesID,date_time, methodofpayment, category, color, brand, material, price, gender, workerid  FROM
-	receipt
-	JOIN
-	(SELECT clothesreceipt.ReceiptID, clothesreceipt.ClothesID, allclothes.Category, allclothes.Color, allclothes.Brand, allclothes.Material, allclothes.Price, allclothes.Gender FROM allclothes JOIN clothesreceipt ON allclothes.ClothesID=clothesreceipt.ClothesID) AS `clothesInReceipt`
-      ON receipt.ReceiptID=clothesinreceipt.receiptid
-
+DROP VIEW IF EXISTS clothesshop.AllClientsReceipts;
+CREATE VIEW clothesshop.AllClientsReceipts AS 
+SELECT clientid, receipt.ReceiptID, ClothesID,date_time, methodofpayment, category, color, brand, material, price, gender, workerid  
+FROM clothesshop.receipt
+JOIN (SELECT clothesreceipt.ReceiptID, clothesreceipt.ClothesID, allclothes.Category, allclothes.Color, allclothes.Brand, allclothes.Material, allclothes.Price, allclothes.Gender 
+      FROM clothesshop.allclothes 
+      JOIN clothesshop.clothesreceipt ON allclothes.ClothesID=clothesreceipt.ClothesID) AS clothesInReceipt
+ON receipt.ReceiptID=clothesinreceipt.receiptid;
