@@ -7,7 +7,7 @@ SELECT * FROM clients;
 //  List all Clothes of a certain brand
 SELECT * FROM clothes WHERE Brand="X";
 
-//  Search for Clothes that have size X material Y brand Z
+//  Search for Clothes that have material Y brand Z
 SELECT * FROM clothes WHERE Brand="X" AND Material="Y";
 
 //  As a manager check on your employees
