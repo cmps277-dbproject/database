@@ -47,24 +47,8 @@ SELECT * FROM `Suppliers Clothes`
 
 
 // Selects all the clothes bought for each receipt
-SELECT *
-FROM
-(SELECT Clothes.ClothesID, Clothes.ClientID, Clothes.Category, Clothes.Price, Clothes.Color, Clothes.Brand, Clothes.Material, Clothes.Gender
-FROM Clothes) AS AllClothes
-CROSS JOIN
-(SELECT receipt.ClothesID, receipt.Date_Time, receipt.MethodOfPayment,
-        tops.Sleeves AS `Top Sleeves`, tops.Collar AS `Top Collar`, tops.Size AS `Top Size`, tops.Type AS `Top Type`,
-        pants.Length AS `Pants Length`, pants.Fit AS `Pants Fit`, pants.WaistSize AS `Pants Waist Size`, pants.Type AS `Pants Type`, pants.Inseam AS `Pants Inseam`,
-        hats.Size AS `Hats Size`, hats.Type AS `Hats Type`,
-        Shoes.Size AS `Shoes Size`, Shoes.Type AS `Shoes Type`, Shoes.Laces AS `Shoes Laces`,
-        Dresses.Length AS `Dresses Length`, Dresses.Type AS `Dresses Type`
-    FROM receipt
-    LEFT JOIN Tops ON receipt.ClothesID=Tops.ClothesID
-    LEFT JOIN Pants ON receipt.ClothesID=Pants.ClothesID
-    LEFT JOIN Hats ON receipt.ClothesID=Hats.ClothesID
-    LEFT JOIN Shoes ON receipt.ClothesID=Shoes.ClothesID
-    LEFT JOIN Dresses ON receipt.ClothesID=Dresses.ClothesID) AS ClothesBought
-Where AllClothes.ClothesID = ClothesBought.ClothesID
+SELECT * FROM `AllClientsReceipts`
+
 
 // As an owner check which managers manage which employees
 SELECT *
