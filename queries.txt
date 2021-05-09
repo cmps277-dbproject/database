@@ -1,6 +1,6 @@
 //  List all available Clothes
 SELECT 
-    clothes.ClothesID, clothes.Catergory, 
+    clothes.ClothesID, clothes.Category, 
     dresses.Length AS 'Dress length', 
     dresses.Type AS 'Dress type',
     hats.Size AS 'Hat size',
