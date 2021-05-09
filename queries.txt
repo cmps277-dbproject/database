@@ -1,3 +1,34 @@
+//  List all Suppliers
+SELECT * FROM suppliers;
+
+//  List all Clients
+SELECT * FROM clients;
+
+//  List all Clothes of a certain brand
+SELECT * FROM clothes WHERE Brand="X";
+
+//  Search for Clothes that have size X material Y brand Z
+SELECT * FROM clothes WHERE Brand="X" AND Material="Y";
+
+//  As a manager check on your employees
+SELECT * FROM employees;
+
+//  List all Clothes from a certain Supplier
+SELECT * FROM `SuppliersClothes`;
+
+//  Selects all the clothes bought for each receipt
+SELECT * FROM `AllClientsReceipts`;
+
+//  Selects all the clothes bought for receipt Y
+SELECT * FROM `AllClientsReceipts` WHERE  receiptid="Y";
+
+//  Selects all the clothes bought for client X
+SELECT * FROM `AllClientsReceipts` WHERE  clientid="X";
+
+####################
+  COMPLEX QUERIES
+####################
+
 //  List all available Clothes
 SELECT
 	clothes.ClothesID, clothes.Category, clothes.Color, clothes.Brand, clothes.Material, clothes.Price, clothes.Gender,
@@ -22,38 +53,7 @@ SELECT
         LEFT JOIN hats ON clothes.ClothesID = hats.ClothesID
         LEFT JOIN pants ON clothes.ClothesID = pants.ClothesID
         LEFT JOIN shoes ON clothes.ClothesID = shoes.ClothesID
-        LEFT JOIN tops ON clothes.ClothesID = tops.ClothesID
-
-//  List all Suppliers
-SELECT * FROM suppliers
-
-//  List all Clients
-SELECT * FROM clients
-
-//  List all Clothes of a certain brand
-SELECT * FROM clothes WHERE Brand="X"
-
-//  Search for Clothes that have size X material Y brand Z
-SELECT * FROM clothes WHERE Brand="X" AND Material="Y"
-
-// As a manager check on your employees
-SELECT * FROM employees
-
-####################
-COMPLEX QUERIES
-####################
-//  List all Clothes from a certain Supplier
-SELECT * FROM `Suppliers Clothes`
-
-
-// Selects all the clothes bought for each receipt
-SELECT * FROM `AllClientsReceipts`
-
-// Selects all the clothes bought for receipt Y
-SELECT * FROM `AllClientsReceipts` WHERE  receiptid="Y"
-
-// Selects all the clothes bought for client X
-SELECT * FROM `AllClientsReceipts` WHERE  clientid="X"
+        LEFT JOIN tops ON clothes.ClothesID = tops.ClothesID;
 
 // As an owner check which managers manage which employees
 SELECT *
@@ -66,4 +66,4 @@ LEFT JOIN (SELECT *
             FROM Worker, Manager
             WHERE Worker.WorkerID=Manager.WorkerID) AS `Manager`
     ON Manages.ManagerWorkerID=Manager.WorkerID) AS `ManagerManages`
-ON Employee.WorkerID=ManagerManages.EmployeeWorkerID 
+ON Employee.WorkerID=ManagerManages.EmployeeWorkerID ;
