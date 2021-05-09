@@ -41,3 +41,7 @@ The Clothes Shop Database
 - AllClothes
 
 - SuppliersClothes
+
+## Relational Model
+
+![Relational-Model-Diagram](/images/relational model.png)
