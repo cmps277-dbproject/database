@@ -167,3 +167,28 @@ SELECT clientid, receipt.ReceiptID, ClothesID,date_time, methodofpayment, catego
 	(SELECT clothesreceipt.ReceiptID, clothesreceipt.ClothesID, allclothes.Category, allclothes.Color, allclothes.Brand, allclothes.Material, allclothes.Price, allclothes.Gender FROM allclothes JOIN clothesreceipt ON allclothes.ClothesID=clothesreceipt.ClothesID) AS `clothesInReceipt`
       ON receipt.ReceiptID=clothesinreceipt.receiptid
 
+
+CREATE VIEW `AllClothes` AS
+SELECT clothes.ClothesID, clothes.Category, clothes.Color, clothes.Brand, clothes.Material, clothes.Price, clothes.Gender,
+    dresses.Length AS 'Dress length', 
+    dresses.Type AS 'Dress type',
+    hats.Size AS 'Hat size',
+    hats.Type AS 'Hat type',
+    pants.Fit AS 'Pants fit',
+    pants.Inseam AS 'Pants inseam',
+    pants.Length AS 'Pants length',
+    pants.Type AS 'Pants type',
+    pants.WaistSize AS 'Pants waist size',
+    shoes.Laces AS 'Shoe laces',
+    shoes.Size AS 'Shoe size',
+    shoes.Type AS 'Shoe type',
+    tops.Collar AS 'Top collar',
+    tops.Size AS 'Top size',
+    tops.Sleeves AS 'Top Sleeve',
+    tops.Type AS 'Top type'
+    FROM clothes 
+    	LEFT JOIN dresses ON clothes.ClothesID = dresses.ClothesID
+        LEFT JOIN hats ON clothes.ClothesID = hats.ClothesID
+        LEFT JOIN pants ON clothes.ClothesID = pants.ClothesID
+        LEFT JOIN shoes ON clothes.ClothesID = shoes.ClothesID
+        LEFT JOIN tops ON clothes.ClothesID = tops.ClothesID
