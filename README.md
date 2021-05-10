@@ -42,19 +42,30 @@ The Clothes Shop Database
 
 - SuppliersClothes
 
-##Indexes
+## Indexes
 
 - ReceiptIdIndex
+
 - SuppliersSupplierIdIndex
+
 - ClothesIdIndex
+
 - TopsClothesIdIndex
+
 - PantsClothesIdIndex
+
 - HatsClothesIdIndex
+
 - ShoesClothesIdIndex
+
 - DressesClothesIdIndex
+
 - ClothesReceiptClothesIdIndex
+
 - ClothesReceiptReceiptIDIndex
+
 - SupplyClothesIdIndex
+
 - SupplySupplierIdIndex
 
 ## Phase 1 - Enhanced Entity Relational Diagram
