@@ -1,13 +1,3 @@
-------------------------------WORKERS----------------------------------
-INSERT INTO clothesshop.Employees
-(`WorkerID`, `Salary`, `Type`, `Schedule`, `Department`) 
-VALUES 
-('1', '1010', 'Cashier', 'M T W TR F', 'Shoes'), 
-('2', '10000', 'Owner', 'M W F', 'Management'), 
-('3', '7000', 'Manager', 'Weekdays', 'Management'), 
-('4', '900', 'Cashier', 'Weekdays', 'Hats'), 
-('5', '5000', 'Assistant Manager', 'Weekdays', 'Management')
-
 INSERT INTO clothesshop.Worker
 (`Name`, `Address`, `Phone`, `Email`) 
 VALUES 
@@ -16,6 +6,15 @@ VALUES
 ( 'Joaquin Phoenix', 'America', '205 590-7140', 'joaquin@phoenix.org'), 
 ( 'Jennifer Lawrence', 'America' ,'223 548-5220', 'jennifer@lawrence.com'), 
 ( 'Lady Gaga', 'Atlantis', '214 156-4651', 'lady@gaga.com');
+
+INSERT INTO clothesshop.Employees
+(`WorkerID`, `Salary`, `Type`, `Schedule`, `Department`) 
+VALUES 
+('1', '1010', 'Cashier', 'M T W TR F', 'Shoes'), 
+('2', '10000', 'Owner', 'M W F', 'Management'), 
+('3', '7000', 'Manager', 'Weekdays', 'Management'), 
+('4', '900', 'Cashier', 'Weekdays', 'Hats'), 
+('5', '5000', 'Assistant Manager', 'Weekdays', 'Management');
 
 INSERT INTO clothesshop.Owner
 (`WorkerID`) 
@@ -33,7 +32,24 @@ VALUES
 ('1', '3'), 
 ('4', '3');
 
------------------------------CLOTHES-------------------------------------
+INSERT INTO clothesshop.Clients
+(`Name`, `Phone`, `Address`, `Email`) 
+VALUES 
+( 'Ali', '03000000', 'Lebanon', 'ali@gmail.com'), 
+( 'Bassam', '03000001', 'France', 'bassam@gmail.com'), 
+( 'Carla', '03000002', 'Saida', 'carla@gmail.com'), 
+( 'Daoud', '03000003', 'Sudan', 'daoud@gmail.com'), 
+( 'Ema', '03000004', 'Brazil', 'ema@gmail.com');
+
+INSERT INTO clothesshop.Receipt
+(`ClientID`, `Date_Time`, `MethodOfPayment`, `WorkerID`)  
+VALUES 
+('1', '1000-01-01 00:00:00.000000', 'Credit Card', '1'), 
+('2', '1000-01-01 00:00:00.000000', 'Credit Card', '4'), 
+('3', '1000-01-01 00:00:00.000000', 'Credit Card', '4'), 
+('1', '1000-01-01 00:00:00.000000', 'Cash', '4'), 
+('5', '1000-01-01 00:00:00.000000', 'Cash', '1');
+
 INSERT INTO clothesshop.Clothes
 ( `ClientID`, `WorkerID`, `Color`, `Brand`, `Material`, `Price`, `Gender`, `Category`) 
 VALUES 
@@ -79,37 +95,17 @@ VALUES
 ('5', '36in', 'slim', '30in', 'dress pants', '25in'),
 ('10', '29in', 'baggy', '30in', 'cargo', '27in');
 
-----------------------------CLIENTS/RECEIPTS--------------------------------
-INSERT INTO clothesshop.Receipt
-(`ClientID`, `Date_Time`, `MethodOfPayment`, `WorkerID`)  
-VALUES 
-('1', '1000-01-01 00:00:00.000000', 'Credit Card', '1'), 
-('2', '1000-01-01 00:00:00.000000', 'Credit Card', '4'), 
-('3', '1000-01-01 00:00:00.000000', 'Credit Card', '4'), 
-('1', '1000-01-01 00:00:00.000000', 'Cash', '4'), 
-('5', '1000-01-01 00:00:00.000000', 'Cash', '1');
-
 INSERT INTO clothesshop.ClothesReceipt
 (ClothesID, ReceiptID)
 VALUES
 ('1','1'),
 ('5','2'),
-('6','2'), 	-- might need to remove this
+('6','2'), 	
 ('3','3'),
-('11','3'), -- might need to remove this
+('11','3'), 
 ('2','4'),
 ('9','5');
 
-INSERT INTO clothesshop.Clients
-(`Name`, `Phone`, `Address`, `Email`) 
-VALUES 
-( 'Ali', '03000000', 'Lebanon', 'ali@gmail.com'), 
-( 'Bassam', '03000001', 'France', 'bassam@gmail.com'), 
-( 'Carla', '03000002', 'Saida', 'carla@gmail.com'), 
-( 'Daoud', '03000003', 'Sudan', 'daoud@gmail.com'), 
-( 'Ema', '03000004', 'Brazil', 'ema@gmail.com');
-
--------------------------------SUPPLIERS---------------------------------
 INSERT INTO clothesshop.Suppliers
 (`Name`, `Phone`, `Country`, `State`, `ZIP`)
 VALUES
@@ -117,7 +113,7 @@ VALUES
 ('Dior', '0014 4484512', 'Portugal', 'Lisbon', '01120');
 
 INSERT INTO clothesshop.Supply
-(`ClothesID`, `ReceiptID`)
+(`ClothesID`, `SupplierID`)
 VALUES
 ('1', '1'),
 ('2', '1'),

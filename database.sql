@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS clothesshop.Clients;
 create table clothesshop.Clients (
    ClientID int  NOT NULL AUTO_INCREMENT,
    Name VARCHAR(50),          
-   Phone VARCHAR(8),           
+   Phone VARCHAR(12),           
    Address VARCHAR(100),
    Email VARCHAR(20),
    PRIMARY KEY (ClientID)
@@ -77,7 +77,7 @@ DROP TABLE IF EXISTS clothesshop.Suppliers;
 create table clothesshop.Suppliers (
    SupplierID int NOT NULL AUTO_INCREMENT,
    Name VARCHAR(50),
-   Phone VARCHAR(8) ,
+   Phone VARCHAR(12) ,
    Country VARCHAR(50),
    `State` VARCHAR(50),
    ZIP int,
