@@ -42,7 +42,8 @@ The Clothes Shop Database
 
 - SuppliersClothes
 
-#Indexes
+##Indexes
+
 - ReceiptIdIndex
 - SuppliersSupplierIdIndex
 - ClothesIdIndex
