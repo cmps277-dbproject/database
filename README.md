@@ -37,13 +37,16 @@ The Clothes Shop Database
 ## Views
 
 - AllClientsReceipt
+A view of all the receipts to get which clothing item was bought by which client.
 
 - AllClothes
+A view of all the clothes (tops, pants, shoes, hats, dresses).
 
 - SuppliersClothes
+A view of all the clothing items and their corresponding supplier.
 
 ## Indexes
-
+Added the following indexes, because we will be searching on them when joining tables and selecting
 - ReceiptIdIndex
 
 - SuppliersSupplierIdIndex
