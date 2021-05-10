@@ -42,13 +42,13 @@ VALUES
 ( 'Ema', '03000004', 'Brazil', 'ema@gmail.com');
 
 INSERT INTO clothesshop.Receipt
-(`ClientID`, `Date_Time`, `MethodOfPayment`, `WorkerID`)  
+(`ClientID`, `ReceiptID`, `Date_Time`, `MethodOfPayment`, `WorkerID`) 
 VALUES 
-('1', '1000-01-01 00:00:00.000000', 'Credit Card', '1'), 
-('2', '1000-01-01 00:00:00.000000', 'Credit Card', '4'), 
-('3', '1000-01-01 00:00:00.000000', 'Credit Card', '4'), 
-('1', '1000-01-01 00:00:00.000000', 'Cash', '4'), 
-('5', '1000-01-01 00:00:00.000000', 'Cash', '1');
+('1', '1', '1000-01-01 00:00:00.000000', 'Credit Card', '1'), 
+('2', '2','1000-01-01 00:00:00.000000', 'Credit Card', '4'), 
+('3', '3','1000-01-01 00:00:00.000000', 'Credit Card', '4'), 
+('1', '1','1000-01-01 00:00:00.000000', 'Cash', '4'),
+('5', '4','1000-01-01 00:00:00.000000', 'Cash', '1');
 
 INSERT INTO clothesshop.Clothes
 ( `ClientID`, `WorkerID`, `Color`, `Brand`, `Material`, `Price`, `Gender`, `Category`) 

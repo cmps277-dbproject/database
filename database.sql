@@ -62,12 +62,13 @@ create table clothesshop.Clients (
 
 DROP TABLE IF EXISTS clothesshop.Receipt;
 create table clothesshop.Receipt (
+   ID int NOT NULL AUTO_INCREMENT,
    ClientID int NOT NULL,
-   ReceiptID int NOT NULL AUTO_INCREMENT,
+   ReceiptID int NOT NULL,
    Date_Time datetime,
    MethodOfPayment VARCHAR(20),
    WorkerID int,
-   PRIMARY KEY (ReceiptID, ClientID),
+   PRIMARY KEY (ID, ClientID, ReceiptID),
    FOREIGN KEY (ClientID) REFERENCES Clients (ClientID)
 );
 CREATE INDEX ReceiptIdIndex on clothesshop.Receipt (ReceiptID ASC);
