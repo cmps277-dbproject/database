@@ -2,6 +2,18 @@
 
 The Clothes Shop Database
 
+- [Tables](#tables)
+
+- [Views](#views)
+
+- [Indexes](#indexes)
+
+- [Phase 0 - Project Proposal](#phase-0---project-proposal)
+
+- [Phase 1 - Enhanced Entity Relational Diagram](#phase-1---enhanced-entity-relational-diagram)
+
+- [Phase 2 - Relational Model Diagram](#phase-2---relational-model-diagram)
+
 ## Tables
 
 - Clients
@@ -46,7 +58,9 @@ A view of all the clothes (tops, pants, shoes, hats, dresses).
 A view of all the clothing items and their corresponding supplier.
 
 ## Indexes
+
 Added the following indexes, because we will be searching on them when joining tables and selecting
+
 - ReceiptIdIndex
 
 - SuppliersSupplierIdIndex
@@ -73,7 +87,9 @@ Added the following indexes, because we will be searching on them when joining t
 
 ## Phase 0 - Project Proposal
 
-[embed]/images/Project-Proposal.pdf[/embed]
+![proposal part 1](/images/proposal1.png)
+
+![proposal part 2](/images/proposal2.png)
 
 ## Phase 1 - Enhanced Entity Relational Diagram
 
