@@ -2,17 +2,12 @@
 
 The Clothes Shop Database
 
-- [Tables](#tables)
-
-- [Views](#views)
-
-- [Indexes](#indexes)
-
-- [Phase 0 - Project Proposal](#phase-0---project-proposal)
-
-- [Phase 1 - Enhanced Entity Relational Diagram](#phase-1---enhanced-entity-relational-diagram)
-
-- [Phase 2 - Relational Model Diagram](#phase-2---relational-model-diagram)
+[Tables](#tables)
+[Views](#views)
+[Indexes](#indexes)
+[Phase 0 - Project Proposal](#phase-0---project-proposal)
+[Phase 1 - Enhanced Entity Relational Diagram](#phase-1---enhanced-entity-relational-diagram)
+[Phase 2 - Relational Model Diagram](#phase-2---relational-model-diagram)
 
 ## Tables
 
