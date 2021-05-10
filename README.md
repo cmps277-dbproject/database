@@ -71,6 +71,10 @@ Added the following indexes, because we will be searching on them when joining t
 
 - SupplySupplierIdIndex
 
+## Phase 0 - Project Proposal
+
+[embed]/images/Project-Proposal.pdf[/embed]
+
 ## Phase 1 - Enhanced Entity Relational Diagram
 
 ![EERD](/images/EERD.png)
