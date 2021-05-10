@@ -36,13 +36,13 @@ The Clothes Shop Database
 
 ## Views
 
-- AllClientsReceipt
+- AllClientsReceipt:
 A view of all the receipts to get which clothing item was bought by which client.
 
-- AllClothes
+- AllClothes:
 A view of all the clothes (tops, pants, shoes, hats, dresses).
 
-- SuppliersClothes
+- SuppliersClothes:
 A view of all the clothing items and their corresponding supplier.
 
 ## Indexes
