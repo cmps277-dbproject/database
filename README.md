@@ -8,6 +8,8 @@ The Clothes Shop Database
 
 [Indexes](#indexes)
 
+[User Interface](#user-interface)
+
 [Phase 0 - Project Proposal](#phase-0---project-proposal)
 
 [Phase 1 - Enhanced Entity Relational Diagram](#phase-1---enhanced-entity-relational-diagram)
@@ -84,6 +86,13 @@ Added the following indexes, because we will be searching on them when joining t
 - SupplyClothesIdIndex
 
 - SupplySupplierIdIndex
+
+
+## User Interface
+
+![Model part 1](/images/model1.png)
+
+![Model part 2](/images/model2.png)
 
 ## Phase 0 - Project Proposal
 
